@@ -12,7 +12,7 @@ Region will be "us-east1 (South Carolina)"
 Zone will be "us-east1-b"
 The machine type will be "f1-micro".
 Using the default image type "Debian Linux"
-Then Click Create
+Then Click "Create"
 
 
 TASK 2 - Create a Kubernetes service cluster
