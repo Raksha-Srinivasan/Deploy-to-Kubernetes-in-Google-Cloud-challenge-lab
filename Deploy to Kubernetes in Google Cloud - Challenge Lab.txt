@@ -1,8 +1,8 @@
-Deploy to Kubernetes in Google Cloud: Challenge Lab
+# Deploy to Kubernetes in Google Cloud: Challenge Lab
 
 
 
-TASK 1 - Create a Docker image and store the Dockerfile
+# TASK 1 - Create a Docker image and store the Dockerfile
 
 gcloud auth list
 
