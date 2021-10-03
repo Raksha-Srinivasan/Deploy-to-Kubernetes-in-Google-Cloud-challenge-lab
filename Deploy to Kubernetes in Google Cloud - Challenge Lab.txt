@@ -101,7 +101,7 @@ gcloud source repos list
 5.Apply save
 
 //Click "Build Now" option to build and deploy your app
-Note: wait until the app gets built--TO check whether your app is running -- On Build Queue--click on your app and select "Console Output"--for successful Deployment of your App!
+Note: wait until the app gets built--TO check whether your app is running -- On Build Queue--click on your app and select "Console Output"--To check for successful Deployment of your App!
 
 
 #Run the following commands in shell
