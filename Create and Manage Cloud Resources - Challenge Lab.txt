@@ -7,6 +7,7 @@ TASK  1 - Create a project jumphost instance (zone: us-east1-b)
 Navigation menu > Compute engine > VM Instance
 
 #Follow the steps to create VM-Instance
+
 Name the instance "nucleus-jumphost"
 Region will be "us-east1 (South Carolina)"
 Zone will be "us-east1-b"
