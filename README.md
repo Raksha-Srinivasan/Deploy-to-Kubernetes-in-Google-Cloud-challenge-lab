@@ -4,4 +4,4 @@
 
 * QUEST 2 - Deploy to Kubernetes in Google Cloud: Challenge Lab
 
-* QUEST 3 - Perform Foundational Infrastructure Tasks in Google Cloud - Challenge Lab
+* QUEST 3 - Perform Foundational Infrastructure Tasks in Google Cloud: Challenge Lab
