@@ -31,7 +31,7 @@ Remaining leave as default -> Then Click "Next"
 
 Runtime: Node.js 14 Entry point: thumbnail
 
-Add and Modify the given code to index.js and package.json approprietly .
+Add and Modify the given code to index.js and package.json appropriately .
 
 "index.js"
 
