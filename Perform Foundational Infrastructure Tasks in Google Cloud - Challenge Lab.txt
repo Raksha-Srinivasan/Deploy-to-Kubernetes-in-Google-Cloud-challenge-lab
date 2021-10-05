@@ -137,3 +137,12 @@ TASK 4 - Remove the previous cloud engineer
 
 Navigation menu -> IAM & Admin
 Search for the "Username 2" -> click on Edit Icon -> Delete Role 
+
+
+
+
+
+
+
+
+
