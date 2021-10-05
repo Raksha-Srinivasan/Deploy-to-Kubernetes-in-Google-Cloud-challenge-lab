@@ -100,7 +100,7 @@ gcloud source repos list
 
 5.Apply save
 
-#Run the following commands in shell
+#Run the following commands in cloud shell
 
 sed -i "s/green/orange/g" source/html.go
 sed -i "s/YOUR_PROJECT/$GOOGLE_CLOUD_PROJECT/g" Jenkinsfile
@@ -111,5 +111,5 @@ git commit -m "built pipeline init"
 git push
 
 
-//Now navigate to jenkins dashborad and Click "Build Now" option to build and deploy your app
+//Now navigate to jenkins dashborad again and Click "Build Now" option to build and deploy your app
 Note: wait until the app gets built--TO check whether your app is running -- On Build Queue--click on your app and select "Console Output"--To check for successful Deployment of your App!
