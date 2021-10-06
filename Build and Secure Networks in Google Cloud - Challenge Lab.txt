@@ -39,6 +39,8 @@ gcloud compute instances add-tags juice-shop --tags=internal-ssh-ingress --zone=
 TASK 6 - SSH to bastion host via IAP and juice-shop via bastion
 
 Navigation Menu -> Compute Engine -> instances -> Click the SSH button for the bastion host. 
+
 #Type the following command in ssh of bastion host
+
 ssh [internal IP address of juice-shop]
 
