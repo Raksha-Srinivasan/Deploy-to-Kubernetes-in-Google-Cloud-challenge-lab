@@ -6,4 +6,6 @@
 
 * QUEST 3 - Perform Foundational Infrastructure Tasks in Google Cloud: Challenge Lab
 
-* QUEST 4 - Build and Secure Networks in Google Cloud
+* QUEST 4 - Build and Secure Networks in Google Cloud: Challenge Lab
+
+* QUEST 5 - Explore Machine Learning Models with Explainable AI: Challenge Lab
