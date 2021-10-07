@@ -1,0 +1,95 @@
+Explore Machine Learning Models with Explainable AI : Challenge Lab
+
+
+
+TASK 1 - Start a JupyterLab Notebook Instance
+
+#Steps to be followed
+
+1.Navigation Menu -> AI Platform -> Notebooks -> New Notebook
+2.In the Customize instance menu -> select the version of TensorFlow Enterprise 2.3 Without GPUs.
+3.In the New notebook instance dialog, accept the default options and click "Create".
+
+
+TASK 2 - Download the Challenge Notebook
+
+1.In your notebook, click the terminal.
+2.Clone the repo: git clone https://github.com/GoogleCloudPlatform/training-data-analyst
+3.Go to the enclosing folder: "training-data-analyst/quests/dei."
+4.Open the notebook file "what-if-tool-challenge.ipynb".
+5.Run -> Download and import the dataset hmda_2017_ny_all-records_labels
+
+TASK 3 - Build and Train your Models
+
+# ---- TODO ---------
+#create the model=Sequential()
+# model.add (your layers)
+# model.compile
+# model.fit
+#Type and replace the following model to create and train your first model
+
+model = Sequential()
+model.add(layers.Dense(200, input_shape=(input_size,), activation='relu'))
+model.add(layers.Dense(50, activation='relu'))
+model.add(layers.Dense(20, activation='relu'))
+model.add(layers.Dense(1, activation='sigmoid'))
+model.compile(loss='mean_squared_error', optimizer='adam', metrics=['accuracy'])
+model.fit(train_data, train_labels, epochs=10, batch_size=2048, validation_split=0.1)
+
+
+# ---- TODO ---------
+#create the limited_model=Sequential()
+# limited_model.add (your layers)
+# limited_model.compile
+# limited_model.fit
+#Type and replace the following model to create and train your second model
+
+
+model = Sequential()
+model.add(layers.Dense(200, input_shape=(input_size,), activation='relu'))
+model.add(layers.Dense(50, activation='relu'))
+model.add(layers.Dense(20, activation='relu'))
+model.add(layers.Dense(1, activation='sigmoid'))
+model.compile(loss='mean_squared_error', optimizer='adam', metrics=['accuracy'])
+model.fit(train_data, train_labels, epochs=10, batch_size=2048, validation_split=0.1)
+
+
+
+
+TASK 4 - Deploy Model to AI Platform
+
+NOTE: Before deploying your model,create a bucket
+
+Navigation Menu -> Cloud Storage -> Bucket -> "Create Bucket" -> Bucket Name : "Your GCP-Project I'D" -> Then Click "Create-Bucket"
+
+#Deployment of Complete AI model
+
+Go To Navigation Menu -> AI Platform -> Models -> Create "New Model"
+
+Model Name = complete_model
+Version Name = v1
+Python version = 3.7
+Framework = TensorFlow
+Framework version = 2.3.1
+ML Runtime version = 2.3
+
+gs://"Your-Bucket-Name"/saved_complete_model/
+
+Then Click "Save"
+
+#Deployment of Limited AI model
+
+Create another "New Model"
+
+Model Name = limited_model
+Version Name = v1
+Python version = 3.7
+Framework = TensorFlow
+Framework version = 2.3.1
+ML Runtime version = 2.3
+
+gs://"Your-Bucket-Name"/saved_limited_model/
+
+
+
+NOTE: Wait for few minutes to get the version of models to be deployed in the cloud....
