@@ -90,6 +90,8 @@ ML Runtime version = 2.3
 
 gs://"Your-Bucket-Name"/saved_limited_model/
 
+Then Click "Save"
 
 
 NOTE: Wait for few minutes to get the version of models to be deployed in the cloud....
+
