@@ -9,3 +9,5 @@
 * QUEST 4 - Build and Secure Networks in Google Cloud: Challenge Lab
 
 * QUEST 5 - Explore Machine Learning Models with Explainable AI: Challenge Lab
+
+* QUEST 6 - Integrate with Machine Learning APIs: Challenge Lab
