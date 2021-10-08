@@ -16,9 +16,12 @@ cat lab.schema
 Navigation Menu -> BigQuery ->Enlarge qwiklabs-gcp-xx-xxxxxxxxxxxxx -> click on lab and open it -> click on create table
 Create table from : "Google Cloud Storage" -> Select file from GCS Bucket : "gs://cloud-training/gsp323/lab.csv" -> Table name : "customers" -> Select "edit as text" -> Copy paste the output of "cat lab.schema" -> Create Table.
 
-Cluster Name: leave the default name -> Region : us-central1 -> Zone : us-central-c ->Click "Create"
 
 After creating the table Navigate to -> Dataproc and Click on "Create Cluster"
+
+Cluster Name: leave the default name -> Region : us-central1 -> Zone : us-central-c ->Click "Create"
+
+
 
 
 Navigation Menu -> Dataflow -> Jobs -> "Create Job From Template" 
