@@ -11,3 +11,5 @@
 * QUEST 5 - Explore Machine Learning Models with Explainable AI: Challenge Lab
 
 * QUEST 6 - Integrate with Machine Learning APIs: Challenge Lab
+
+* QUEST 7 - Perform Foundational Data, ML, and AI Tasks in Google Cloud: Challenge Lab
