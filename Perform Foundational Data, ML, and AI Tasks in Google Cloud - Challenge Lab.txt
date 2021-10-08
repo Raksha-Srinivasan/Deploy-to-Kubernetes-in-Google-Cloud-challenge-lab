@@ -1,0 +1,162 @@
+Perform Foundational Data, ML, and AI Tasks in Google Cloud: Challenge Lab
+
+
+Go to navigation menu -> Cloud Storage -> Buckets -> Create Bucket -> Bucket Name : "your GCP-Project I'd"
+
+
+TASK 1 - Run a simple Dataflow job
+
+bq mk lab
+gsutil cp gs://cloud-training/gsp323/lab.csv .
+cat lab.csv
+gsutil cp gs://cloud-training/gsp323/lab.schema .
+cat lab.schema
+
+
+Navigation Menu -> BigQuery ->Enlarge qwiklabs-gcp-xx-xxxxxxxxxxxxx -> click on lab and open it -> click on create table
+Create table from : "Google Cloud Storage" -> Select file from GCS Bucket : "gs://cloud-training/gsp323/lab.csv" -> Table name : "customers" -> Select "edit as text" -> Copy paste the output of "cat lab.schema" -> Create Table.
+
+Cluster Name: leave the default name -> Region : us-central1 -> Zone : us-central-c ->Click "Create"
+
+After creating the table Navigate to -> Dataproc and Click on "Create Cluster"
+
+
+Navigation Menu -> Dataflow -> Jobs -> "Create Job From Template" 
+Job name: "Any Unique name" -> Dataflow template : select " Text Files on Cloud Storage to BigQuery under "Process Data in Bulk (batch)" " 
+
+Required Parameters:
+
+JavaScript UDF path in Cloud Storage ->	gs://cloud-training/gsp323/lab.js
+JSON path -> gs://cloud-training/gsp323/lab.schema
+JavaScript UDF name -> transform
+BigQuery output table -> YOUR_PROJECT:lab.customers              //Replace your project i'd
+Cloud Storage input path -> gs://cloud-training/gsp323/lab.csv
+Temporary BigQuery directory -> gs://YOUR_PROJECT/bigquery_temp   //Replace your project i'd
+Temporary location -> gs://YOUR_PROJECT/temp                       ///Replace your project i'd
+
+Then click on "RUN JOB"
+
+
+
+
+
+TASK 2 - Run a simple Dataproc job
+
+
+Navigate to cluster created in Dataproc and click on created Cluster Name
+Click on VM Instance columns nd run and connect the SSH 
+
+//Run the below command into SSH
+hdfs dfs -cp gs://cloud-training/gsp323/data.txt /data.txt
+
+Then move on to Dataproc -> Jobs -> Job Name: Leave as default -> Cluster : select your cluster -> Job Type : Spark
+
+Main class or jar -> org.apache.spark.examples.SparkPageRank
+Jar files -> file:///usr/lib/spark/examples/jars/spark-examples.jar
+Arguments -> /data.txt
+Max restarts per hour -> 1
+
+Then "Submit Job"
+
+
+
+TASK 3 - Run a simple Dataprep job
+
+
+Go to Navigation Menu -> Dataprep -> "Accept all the terms and conditions" 
+
+Click on Google cloud storage ->  Choose a file or folder : gs://cloud-training/gsp323/runs.csv -> Click on go and load the data.
+
+//Perform the following transforms to ensure the data is in the right state:
+1.select column 10 to "Remove all rows with the state of "FAILURE" "
+2.select column 9 -> right click -> filter rows -> On column values -> Click Contains -> To Remove all rows with 0 or 0.0 as a score ( Use the regex pattern /(^0$|^0\.0$)/ )
+3.Label columns with the names given in the table.
+
+Click on "RUN" AND "RUN" again to submit the jobs created.
+
+
+TASK 4 - AI
+
+
+gcloud iam service-accounts create my-natlang-sa \
+  --display-name "my natural language service account"
+
+gcloud iam service-accounts keys create ~/key.json \
+  --iam-account my-natlang-sa@${GOOGLE_CLOUD_PROJECT}.iam.gserviceaccount.com
+
+export GOOGLE_APPLICATION_CREDENTIALS="/home/$USER/key.json"
+
+gcloud auth activate-service-account my-natlang-sa@${GOOGLE_CLOUD_PROJECT}.iam.gserviceaccount.com --key-file=$GOOGLE_APPLICATION_CREDENTIALS
+
+gcloud ml language analyze-entities --content="Old Norse texts portray Odin as one-eyed and long-bearded, frequently wielding a spear named Gungnir and wearing a cloak and a broad hat." > result.json
+
+gcloud auth login //(Copy the token from the link provided)
+
+
+gsutil cp result.json gs://YOUR_PROJECT-marking/task4-cnl.result       //replace your project i'd
+
+
+
+export API_KEY={Replace with API KEY}
+
+nano request.json
+
+#Add this command into request.json
+
+{
+  "config": {
+      "encoding":"FLAC",
+      "languageCode": "en-US"
+  },
+  "audio": {
+      "uri":"gs://cloud-training/gsp323/task4.flac"
+  }
+}
+
+
+
+curl -s -X POST -H "Content-Type: application/json" --data-binary @request.json \
+"https://speech.googleapis.com/v1/speech:recognize?key=${API_KEY}" > result.json
+
+gsutil cp result.json gs://YOUR_PROJECT-marking/task4-gcs.result    //replace your project i'd
+
+gcloud iam service-accounts create quickstart
+
+gcloud iam service-accounts keys create key.json --iam-account quickstart@${GOOGLE_CLOUD_PROJECT}.iam.gserviceaccount.com
+
+gcloud auth activate-service-account --key-file key.json
+
+export ACCESS_TOKEN=$(gcloud auth print-access-token)
+
+
+nano request.json
+
+#Replace this following command into request.json
+
+{
+   "inputUri":"gs://spls/gsp154/video/chicago.mp4",
+   "features": [
+       "TEXT_DETECTION"
+   ]
+}
+
+
+curl -s -H 'Content-Type: application/json' \
+    -H "Authorization: Bearer $ACCESS_TOKEN" \
+    'https://videointelligence.googleapis.com/v1/videos:annotate' \
+    -d @request.json
+
+
+
+curl -s -H 'Content-Type: application/json' -H "Authorization: Bearer $ACCESS_TOKEN" 'https://videointelligence.googleapis.com/v1/operations/OPERATION_FROM_PREVIOUS_REQUEST' > result1.json
+
+
+gsutil cp result1.json gs://YOUR_PROJECT-marking/task4-gvi.result   //replace your project i'd
+
+
+
+
+
+NOTE : Wait until all the jobs gets deployed into the cloud !!!!
+
+
