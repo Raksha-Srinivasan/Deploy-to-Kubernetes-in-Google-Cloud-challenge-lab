@@ -13,3 +13,5 @@
 * QUEST 6 - Integrate with Machine Learning APIs: Challenge Lab
 
 * QUEST 7 - Perform Foundational Data, ML, and AI Tasks in Google Cloud: Challenge Lab
+
+* QUEST 8 - Insights from Data with BigQuery: Challenge Lab
