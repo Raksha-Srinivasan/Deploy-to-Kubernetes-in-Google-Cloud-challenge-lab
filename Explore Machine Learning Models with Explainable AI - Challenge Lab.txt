@@ -45,13 +45,13 @@ model.fit(train_data, train_labels, epochs=10, batch_size=2048, validation_split
 #Type and replace the following model to create and train your second model
 
 
-model = Sequential()
-model.add(layers.Dense(200, input_shape=(input_size,), activation='relu'))
-model.add(layers.Dense(50, activation='relu'))
-model.add(layers.Dense(20, activation='relu'))
-model.add(layers.Dense(1, activation='sigmoid'))
-model.compile(loss='mean_squared_error', optimizer='adam', metrics=['accuracy'])
-model.fit(train_data, train_labels, epochs=10, batch_size=2048, validation_split=0.1)
+limited_model = Sequential()
+limited_model.add(layers.Dense(200, input_shape=(input_size,), activation='relu'))
+limited_model.add(layers.Dense(50, activation='relu'))
+limited_model.add(layers.Dense(20, activation='relu'))
+limited_model.add(layers.Dense(1, activation='sigmoid'))
+limited_model.compile(loss='mean_squared_error', optimizer='adam', metrics=['accuracy'])
+limited_model.fit(train_data, train_labels, epochs=10, batch_size=2048, validation_split=0.1)
 
 
 
@@ -66,7 +66,10 @@ Navigation Menu -> Cloud Storage -> Bucket -> "Create Bucket" -> Bucket Name : "
 
 Go To Navigation Menu -> AI Platform -> Models -> Create "New Model"
 
-Model Name = complete_model
+Model Name = complete_model -> Click "Create"
+
+//Click on the created model name to create "New Version"
+
 Version Name = v1
 Python version = 3.7
 Framework = TensorFlow
@@ -81,7 +84,10 @@ Then Click "Save"
 
 Create another "New Model"
 
-Model Name = limited_model
+Model Name = limited_model -> Click "Create"
+
+//Click on the created model name to create "New Version"
+
 Version Name = v1
 Python version = 3.7
 Framework = TensorFlow
