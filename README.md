@@ -15,3 +15,5 @@
 * QUEST 7 - Perform Foundational Data, ML, and AI Tasks in Google Cloud: Challenge Lab
 
 * QUEST 8 - Insights from Data with BigQuery: Challenge Lab
+
+* QUEST 9 - Engineer Data in Google Cloud: Challenge Lab
