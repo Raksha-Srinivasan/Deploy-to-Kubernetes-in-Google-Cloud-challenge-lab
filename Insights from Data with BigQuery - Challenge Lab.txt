@@ -182,8 +182,31 @@ from summary
 
 TASK 10 -  Create a Datastudio report
 
+Click on this link "https://datastudio.google.com/" -> create "Blank Report" -> click on " BigQuery" -> "Then in the Custom query click on your 'project Id' then paste the following query in the box -> Then Click on "Add report"
 
-In BigQuery -> Under Query Result -> Explore Data -> Click on "Data Studio"
+
+SELECT
+
+  date, SUM(cumulative_confirmed) AS country_cases,
+
+  SUM(cumulative_deceased) AS country_deaths
+
+FROM
+
+  `bigquery-public-data.covid19_open_data.covid19_open_data`
+
+WHERE
+
+  date BETWEEN '2020-03-15'
+
+  AND '2020-04-30'
+
+  AND country_name ="United States of America"
+
+GROUP BY date
+
+
+
 
 Select "country_cases" in the data table to add it into the Dimensions
 
